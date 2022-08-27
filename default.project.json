@@ -1,0 +1,13 @@
+{
+	"name": "Lua-Modules",
+	"tree": {
+		"$className": "DataModel",
+
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+
+			"Rbx": { "$path": "Rbx" },
+			"Vanilla": { "$path": "Vanilla" }
+		}
+	}
+}
