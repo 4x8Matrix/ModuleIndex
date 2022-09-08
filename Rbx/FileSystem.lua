@@ -2,9 +2,12 @@ local FileSystem = { }
 
 function FileSystem.import(module, ...)
 	local moduleResolve = require(module)
+	local moduleResolveType = type(moduleResolve)
 
-	if type(moduleResolve) == "table" and moduleResolve.init then
+	if moduleResolveType == "table" and moduleResolve.init then
 		return moduleResolve.init(...)
+	elseif moduleResolveType == "function" then
+		return moduleResolve(...)
 	else
 		return moduleResolve
 	end
@@ -27,7 +30,7 @@ end
 function FileSystem.importTable(children, ...)
 	local childrenModule = { }
 
-	for _, psuedoModule in children:GetChildren() do
+	for _, psuedoModule in children do
 		if typeof(psuedoModule) == "Instance" and not psuedoModule:IsA("ModuleScript") then
 			continue
 		end
