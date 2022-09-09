@@ -35,7 +35,7 @@ function Janitor:clean()
 end
 
 function Janitor:destroy()
-	self:destroy()
+	self:clean()
 
 	setmetatable({ }, { __mode = "kv" })
 end
